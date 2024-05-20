@@ -17,7 +17,7 @@ server.register(multiPart, {
 /*******************************************************
  * CREATE SERVER
  *******************************************************/
-server.listen({ port: 8080 }, (err, address) => {
+server.listen({ port: 8000, host: "0.0.0.0" }, (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
@@ -26,6 +26,7 @@ server.listen({ port: 8080 }, (err, address) => {
 });
 
 // API
-server.get("/", async (request, reply) => {
-  return "application\n";
+server.get("/test", async (request, reply) => {
+  console.log("/test called");
+  reply.send("/test called");
 });
